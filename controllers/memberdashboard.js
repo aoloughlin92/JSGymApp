@@ -36,17 +36,22 @@ const memberdashboard = {
   addGoal(request,response){
     const memberId = request.params.id;
     const member = memberStore.getMember(memberId);
-    const currentAssessment = member.assessments[0];
-    const newGoal = {
-      id:uuid(),
-      date: request.body.date,
-      measurement: request.body.measurement, 
-      target : request.body.target,
-      status: "Open",
-      startMeasurements: currentAssessment
+    if(member.assessments.length>0){
+      const currentAssessment = member.assessments[0];
+      const newGoal = {
+        id:uuid(),
+        date: request.body.date,
+        measurement: request.body.measurement, 
+        target : request.body.target,
+        status: "Open",
+        startMeasurements: currentAssessment
+      }
+      memberStore.addGoal(memberId, newGoal);
+      logger.debug('New Goal= ', newGoal);
     }
-    memberStore.addGoal(memberId, newGoal);
-    logger.debug('New Goal= ', newGoal);
+    else{
+      logger.info('Goal could not be added - please add an assessment first');
+    }
     response.redirect('/memberdashboard/'+memberId);
   },
   addAssessment(request,response){

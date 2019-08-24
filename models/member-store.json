@@ -178,11 +178,46 @@
       "height": "1.3",
       "startingweight": "50",
       "id": "a868976f-eebf-420f-b98f-545e103134a1",
-      "assessments": [],
-      "goals": [],
-      "bmi": 29.59,
-      "isIdealWeight": "green",
-      "bmiCategory": "Moderately Obese"
+      "assessments": [
+        {
+          "id": "28ec4518-e038-46bd-879e-3806d77b7746",
+          "millis": 1566664289786,
+          "date": "24-Aug-2019 16:31:29",
+          "weight": "90",
+          "chest": "45",
+          "thigh": "67",
+          "upperArm": "24",
+          "waist": "25",
+          "hips": "36",
+          "trend": "red",
+          "comment": " Well Done"
+        }
+      ],
+      "goals": [
+        {
+          "id": "c07a0ae6-3bfb-48a6-982d-610e7002597c",
+          "date": "2019-08-31",
+          "measurement": "Chest",
+          "target": "20",
+          "status": "Open",
+          "startMeasurements": {
+            "id": "28ec4518-e038-46bd-879e-3806d77b7746",
+            "millis": 1566664289786,
+            "date": "24-Aug-2019 16:31:29",
+            "weight": "90",
+            "chest": "45",
+            "thigh": "67",
+            "upperArm": "24",
+            "waist": "25",
+            "hips": "36",
+            "trend": "red",
+            "comment": ""
+          }
+        }
+      ],
+      "bmi": 53.25,
+      "isIdealWeight": "red",
+      "bmiCategory": "Very Severely Obese"
     }
   ]
 }
