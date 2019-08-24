@@ -1,0 +1,59 @@
+ {{#each member.assessments}}
+<table class="ui table">
+  <thead>
+    <tr>
+      <th> Date </th>
+      <th> Weight </th>
+      <th> Chest </th>
+      <th> Thigh </th>
+      <th> Upper Arm </th>
+      <th> Waist </th>
+      <th> Hips </th>
+      <th> Trend </th>
+      <th> Comment </th>
+    </tr>
+  </thead>
+  
+  <tbody>
+   
+    <tr>
+      <td>
+        {{date}}
+      </td>
+      <td>
+        {{weight}}
+      </td>
+      <td>
+        {{chest}}
+      </td>
+      <td>
+        {{thigh}}
+      </td>
+      <td>
+        {{upperArm}}
+      </td>
+      <td>
+        {{waist}}
+      </td>
+      <td>
+        {{hips}}
+      </td>
+      <td>
+        <a class="ui {{trend}} tag label"></a>
+      </td>
+      <td>
+        {{comment}}
+      </td>
+    </tr>
+  </tbody>
+</table>
+  <h4 class="ui headder">
+    Comments
+  </h4>
+<form class="ui form" action="/editcomment/{{../member.id}}/{{id}}" method="POST">
+    <div class="ui field">
+      <textarea rows="2" name="comment"> {{comment}}</textarea>
+    </div>
+    <button class="ui blue submit button"> Update </button>
+  </form>
+ {{/each}}

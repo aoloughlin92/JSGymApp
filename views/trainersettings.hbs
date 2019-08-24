@@ -1,0 +1,31 @@
+{{> trainermenu id="trainersettings"}}
+
+<div class="ui two column grid basic middle aligned segment">
+  <div class="column">
+    <img class="ui image" src="https://cdn.glitch.com/be342d31-708b-488c-89fa-309fd26498cb%2Fabout.jpg?v=1565976108829">
+  </div>
+  <div class="column">
+    <form class="ui stacked segment form" action="/trainersettings" method="POST">
+      <h3 class="ui header">Register</h3>
+      <div class="two fields">
+        <div class="field">
+          <label>Name</label>
+          <input placeholder="Name" type="text" name="name" value="{{trainer.name}}">
+        </div>
+        <div class="field">
+          <label>Gender</label>
+          <input placeholder="Gender" type="text" name="gender" value="{{trainer.gender}}">
+        </div>
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input placeholder="Email" type="text" name="email" value="{{trainer.email}}">
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input type="password" name="password" value="{{trainer.password}}">
+      </div>
+      <button class="ui blue submit button">Submit</button>
+    </form>
+  </div>
+</div>

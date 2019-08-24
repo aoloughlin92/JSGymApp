@@ -1,0 +1,21 @@
+<nav class="ui menu">
+  <header class="ui header item"> Play Gym</header>
+  <div class="right menu">
+    <a id="memberdashboard" class="item" href="/memberdashboard/{{member.id}}"> Dashboard  </a>
+    <a id="about" class="item" href="/about/{{member.id}}"> About </a>
+    <div class="right menu">
+      <div class="ui simple dropdown item">
+        <i class="user icon"></i>
+        <div class="menu">
+          <a class="item" href="/membersettings/{{member.id}}">Settings</a>
+          <a class="item" href="/logout">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  $("#{{id}}").addClass("active item");
+</script>
+
