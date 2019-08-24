@@ -76,6 +76,18 @@ const memberStore = {
     this.updateMemberStats(id);
     this.store.save();
   },
+  addGoal(id,goal){
+    const member = this.getMember(id);
+    member.goals.push(goal);
+    this.store.save();
+  },
+  updateGoalStatus(id,goalId,status){
+    const member = this.getMember(id);
+    const goals = member.goals;
+    const goal = _.find(goals,{id:goalId});
+    goal.status = status;
+    this.store.save();
+  },
   addMember(member){
     this.store.add(this.collection, member);
     this.store.save();

@@ -1,0 +1,28 @@
+<table class="ui celled table">
+  <thead>
+    <tr>
+      <th> Target Date </th>
+      <th> Measurement </th>
+      <th> Value </th>
+      <th> Status </th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each member.goals}}
+    <tr>
+      <td>
+      {{date}}
+      </td>
+      <td>
+        {{measurement}}
+      </td>
+      <td>
+        {{target}}
+      </td>
+      <td>
+        {{status}}
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

@@ -38,6 +38,7 @@ const accounts = {
     const member = request.body;
     member.id = uuid();
     member.assessments=[];
+    member.goals= [];
     member.bmi=0;
     member.isIdealWeight = true;
     member.bmiCategory = "";
@@ -51,14 +52,13 @@ const accounts = {
     const trainer = trainerstore.getTrainerByEmail(request.body.email);
     const password = request.body.password;
     if (trainer && password == trainer.password) {
-      
       response.cookie('trainer', trainer.email);
       logger.info(`logging in ${trainer.email}`);
       response.redirect('/trainerdashboard');
     } 
     else {
       const member = memberstore.getMemberByEmail(request.body.email);
-      if (member && password == member.password){
+      if (member&& password == member.password ){
       response.cookie('member', member.email);
       logger.info(`logging in ${member.email}`);
       response.redirect('/memberdashboard/'+member.id);

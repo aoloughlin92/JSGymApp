@@ -1,0 +1,37 @@
+<form class="ui segment form" action="/memberdashboard/{{member.id}}/addgoal" method="POST">
+  <h2 class="ui header">
+    <i class="calendar check icon"></i>
+    <div class="content">
+      Set A Goal
+    </div>
+  </h2>
+  <div class="three fields">
+    <div class="field" name="measurement">
+      <label>Measurement</label>
+      <select class="ui dropdown" id="measurement" name = "measurement">
+      <option value="Weight">Weight</option>
+      <option value="Chest">Chest</option>
+      <option value="Thigh">Thigh</option>
+      <option value="Upper Arm">Upper Arm</option>r
+      <option value="Waist">Waist</option>
+      <option value="Hips">Hips</option>
+      </select>
+      
+    </div>
+    <div class="field">
+      <label>Value</label>
+      <input placeholder="00.00" type="text" name="target">
+    </div>
+    <div class="field">
+      <label>Target Date</label>
+      <div class="ui calendar">
+        <div class="ui input left icon">
+          <i class="calendar icon"></i>
+          <input type="date" name = "date">
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="ui blue submit button"> Set Goal </button>
+</form>
+

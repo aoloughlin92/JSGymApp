@@ -1,0 +1,32 @@
+<h2 class="ui header">
+    <i class="bullseye icon"></i>
+    <div class="content">
+      Goal Summary
+    </div>
+</h2>
+<table class="ui celled table">
+  <thead>
+    <tr>
+      <th> Open </th>
+      <th> Achieved </th>
+      <th> Missed </th>
+      <th> Total </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+      {{goalsummary.open}}
+      </td>
+      <td>
+        {{goalsummary.achieved}}
+      </td>
+      <td>
+        {{goalsummary.missed}}
+      </td>
+      <td>
+        {{member.goals.length}}
+      </td>
+    </tr>
+  </tbody>
+</table>

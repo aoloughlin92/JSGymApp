@@ -4,6 +4,7 @@ const logger = require('../utils/logger');
 //const memberCollection = require('../models/member-store.js');
 const memberStore = require('../models/member-store');
 const trainerStore = require('../models/trainer-store');
+const goalAnalysis= require('../utils/goalAnalysis');
 
 const member = {
   index(request, response) {
@@ -13,9 +14,14 @@ const member = {
     member.assessments.sort(function(a, b) {
     return parseFloat(b.millis) - parseFloat(a.millis);
     });
+    var goal;
+    for(goal of member.goals){
+      goalAnalysis.goalStatus(goal,member);
+    }
     const viewData = {
       title: "Member",
-      member: memberStore.getMember(memberId)
+      member: memberStore.getMember(memberId),
+      goalsummary: goalAnalysis.goalSummary(member)
     };
     response.render("member", viewData);
   },
@@ -27,7 +33,22 @@ const member = {
     memberStore.removeAssessment(memberId, assessmentId);
     response.redirect("/member/" + memberId);
   },
-  
+  addGoal(request,response){
+    const memberId = request.params.id;
+    const member = memberStore.getMember(memberId);
+    const currentAssessment = member.assessments[0];
+    const newGoal = {
+      id:uuid(),
+      date: request.body.date,
+      measurement: request.body.measurement, 
+      target : request.body.target,
+      status: "Open",
+      startMeasurements: currentAssessment
+    }
+    memberStore.addGoal(memberId, newGoal);
+    logger.debug('New Goal= ', newGoal);
+    response.redirect('/member/'+memberId);
+  },
   
   addAssessment(request,response){
     const memberId = request.params.id;

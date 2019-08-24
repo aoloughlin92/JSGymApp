@@ -11,7 +11,7 @@ const trainerdashboard = {
     logger.info("trainerdashboard rendering");
     const viewData = {
       title: "Play Gym",
-      members: memberStore.getAllMembers(),
+      members: memberStore.getAllMembers()
     };
     logger.info('about to render', memberStore.getAllMembers());
     response.render("trainerdashboard", viewData);
@@ -31,6 +31,7 @@ const trainerdashboard = {
     response.redirect('/member/'+memberId);
     
   },
+  
   addMember(request, response) {
     const newMember = {
       id: uuid(),

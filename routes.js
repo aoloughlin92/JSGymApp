@@ -34,4 +34,7 @@ router.post('/register', accounts.register);
 router.post('/memberdashboard/:id/addassessment', memberdashboard.addAssessment);
 router.post('/trainerdashboard/addmember', trainerdashboard.addMember);
 router.post("/editcomment/:id/:assessmentid", trainerdashboard.editComment);
+router.post("/memberdashboard/:id/addgoal",memberdashboard.addGoal);
+router.post("/member/:id/addgoal",member.addGoal);
+
 module.exports = router;
